@@ -2,11 +2,10 @@ def lastStoneWeight(stones: list[int]) -> int:
     stones.sort()
 
     while len(stones) > 1:
-        st1 = stones[len(stones) - 1]
-        st2 = stones[len(stones) - 2]
+        st1, st2 = stones[-1], stones[-2]
 
-        stones.remove(stones[len(stones) - 1])
-        stones.remove(stones[len(stones) - 1])
+        stones.remove(stones[-1])
+        stones.remove(stones[-1])
 
         if st1 - st2 > 0:
             stones.append(st1 - st2)
@@ -15,11 +14,10 @@ def lastStoneWeight(stones: list[int]) -> int:
 
     if stones:
         return stones[0]
-
     return 0
 
 def main():
-    print(lastStoneWeight([3,7,2]))
+    print(lastStoneWeight([2, 7, 4, 1, 8, 1]))
 
 if __name__ == "__main__":
     main()
